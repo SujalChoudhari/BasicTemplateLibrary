@@ -1,0 +1,5 @@
+/bin
+/.vs
+/test
+/*.vcxproj.filters
+/*.vcxproj.user
