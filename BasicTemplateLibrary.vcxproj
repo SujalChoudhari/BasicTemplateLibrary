@@ -152,7 +152,8 @@
   <ItemGroup>
     <ClInclude Include="src\array.h" />
     <ClInclude Include="src\btl.h" />
-    <ClInclude Include="src\linked_list.h" />
+    <ClInclude Include="src\doublyLinkedList.h" />
+    <ClInclude Include="src\singlyLinkedList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
