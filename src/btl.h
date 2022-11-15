@@ -1,6 +1,7 @@
 #pragma once
 
 #include "array.h"
+#include "arrayList.h"
 #include "singlyLinkedList.h"
 #include "doublyLinkedList.h"
 

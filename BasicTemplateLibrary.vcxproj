@@ -151,6 +151,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\array.h" />
+    <ClInclude Include="src\arrayList.h" />
+    <ClInclude Include="src\binaryTree.h" />
     <ClInclude Include="src\btl.h" />
     <ClInclude Include="src\doublyLinkedList.h" />
     <ClInclude Include="src\singlyLinkedList.h" />
