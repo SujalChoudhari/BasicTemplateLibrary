@@ -1,11 +1,5 @@
 #pragma once
 
-
-
-/// Basic Template Library (btl) is a small library with
-/// ready to use data structures
-namespace btl {}
-
 #include "array.h"
 #include "singlyLinkedList.h"
 #include "doublyLinkedList.h"

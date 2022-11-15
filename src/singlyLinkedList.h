@@ -1,90 +1,34 @@
 #pragma once
 
 namespace btl {
-	namespace internals {
-		/// <summary>
-		/// Singly Link is used by singly linked list as a node.
-		/// </summary>
-		/// <typeparam name="t_Type"> Type of data to store</typeparam>
-		template <typename t_Type>
-		struct singlyLink {
-		public:
-			/// <summary>
-			/// Value of the current link
-			/// </summary>
-			t_Type value;
 
-			/// <summary>
-			/// Pointer to the next link, nullptr if none
-			/// </summary>
-			singlyLink* next;
+	template <typename t_Type>
+	struct singlyLink {
+	public:
 
-		public:
-			singlyLink() = delete;
+		t_Type value;
+		singlyLink* next;
 
-			/// <summary>
-			/// Create a new link
-			/// </summary>
-			/// <param name="value"> - value of the current node</param>
-			singlyLink(t_Type value) : value(value), next(nullptr) {}
+	public:
+		singlyLink() = delete;
+		singlyLink(t_Type value) : value(value), next(nullptr) {}
 
-		};
+	};
 
-	}
-
-	using namespace internals;
-
-
-	/// <summary>
-	/// SinglyLinkedList
-	/// 
-	/// 
-	/// A linear data structure used to store data on the heap
-	/// It is completely resizable, but a lot slower than a  btl::array
-	/// </summary>
-	/// <typeparam name="t_Type"> Type of data to store</typeparam>
 	template <typename t_Type>
 	struct singlyLinkedList {
 
 	public:
-		/// <summary>
-		/// The start of linked list
-		/// </summary>
 		singlyLink<t_Type>* head;
-
-		/// <summary>
-		/// The number of element in the link
-		/// </summary>
 		int size;
 
 	public:
 		singlyLinkedList() :head(nullptr), size(0) {}
 		~singlyLinkedList() { clear(); }
 
-		/// <summary>
-		/// Add an element at the end of the link
-		/// </summary>
-		/// <param name="item">- Value of the data</param>
 		void add(t_Type item);
-
-		/// <summary>
-		/// Add an element at the given position.
-		/// The link is appended, no data is deleted.
-		/// </summary>
-		/// <param name="index">- Index of the location to append</param>
-		/// <param name="item"> - Value of the data</param>
 		void add(int index, t_Type item);
-
-		/// <summary>
-		/// Get an enement from the List
-		/// </summary>
-		/// <param name="index">- Index of position to read from</param>
-		/// <returns>-pointer to the data</returns>
 		t_Type* get(int index);
-
-		/// <summary>
-		/// Clear the list manually
-		/// </summary>
 		void clear();
 
 	};
