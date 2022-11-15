@@ -1,41 +1,39 @@
 #pragma once
 
 namespace btl {
-	/// <summary>
-	/// Singly Link is used by singly linked list as a node.
-	/// </summary>
-	/// <typeparam name="t_Type"> Type of data to store</typeparam>
-	template <typename t_Type>
-	struct singlyLink {
-	public:
+	namespace internals {
 		/// <summary>
-		/// Value of the current link
+		/// Singly Link is used by singly linked list as a node.
 		/// </summary>
-		t_Type value;
+		/// <typeparam name="t_Type"> Type of data to store</typeparam>
+		template <typename t_Type>
+		struct singlyLink {
+		public:
+			/// <summary>
+			/// Value of the current link
+			/// </summary>
+			t_Type value;
 
-		/// <summary>
-		/// Pointer to the next link, nullptr if none
-		/// </summary>
-		singlyLink* next;
+			/// <summary>
+			/// Pointer to the next link, nullptr if none
+			/// </summary>
+			singlyLink* next;
 
-	public:
-		singlyLink() = delete;
+		public:
+			singlyLink() = delete;
 
-		/// <summary>
-		/// Create a new link
-		/// </summary>
-		/// <param name="value"> - value of the current node</param>
-		singlyLink(t_Type value) : value(value) ,next(nullptr) {}
+			/// <summary>
+			/// Create a new link
+			/// </summary>
+			/// <param name="value"> - value of the current node</param>
+			singlyLink(t_Type value) : value(value), next(nullptr) {}
 
-		/// <summary>
-		///		Get next link
-		/// </summary>
-		/// <returns> - Pointer to the next link </returns>
-		singlyLink* getNext() { return next; }
-	};
+		};
 
+	}
 
-	
+	using namespace internals;
+
 
 	/// <summary>
 	/// SinglyLinkedList
@@ -47,7 +45,7 @@ namespace btl {
 	/// <typeparam name="t_Type"> Type of data to store</typeparam>
 	template <typename t_Type>
 	struct singlyLinkedList {
-		
+
 	public:
 		/// <summary>
 		/// The start of linked list
@@ -60,7 +58,7 @@ namespace btl {
 		int size;
 
 	public:
-		singlyLinkedList():head(nullptr), size(0) {}
+		singlyLinkedList() :head(nullptr), size(0) {}
 		~singlyLinkedList() { clear(); }
 
 		/// <summary>
@@ -88,10 +86,10 @@ namespace btl {
 		/// Clear the list manually
 		/// </summary>
 		void clear();
-		
+
 	};
 
-	
+
 	template<typename t_Type>
 	inline void singlyLinkedList<t_Type>::add(t_Type item)
 	{
@@ -112,7 +110,7 @@ namespace btl {
 				}
 			}
 		}
-		
+
 	}
 
 	template<typename t_Type>
@@ -120,10 +118,10 @@ namespace btl {
 	{
 		singlyLink<t_Type>* result = head;
 		for (int i = 1;i < index;i++) {
-			if (result) result = result->getNext();
+			if (result) result = result->next;
 		}
 
-		singlyLink<t_Type>* temp = result->getNext();
+		singlyLink<t_Type>* temp = result->next;
 		result->next = new singlyLink<t_Type>(item);
 
 		result->next->next = temp;
@@ -132,15 +130,17 @@ namespace btl {
 	}
 
 	template<typename t_Type>
-	inline t_Type singlyLinkedList<t_Type>::get(int index)
-	{										
+	inline t_Type* singlyLinkedList<t_Type>::get(int index)
+	{
 		singlyLink<t_Type>* result = head;
 		for (int i = 0;i < index;i++) {
-			if (result) result = result->getNext();
+			if (result) result = result->next;
 		}
 
-		return result->value;
+		return &result->value;
 	}
+
+
 
 	template<typename t_Type>
 	inline void singlyLinkedList<t_Type>::clear(void)
@@ -151,9 +151,9 @@ namespace btl {
 		while (1) {
 			current = temp_ptr;
 			if (temp_ptr) {
-				temp_ptr = current->getNext();
+				temp_ptr = current->next;
 				//delete current;
-				
+
 				free(current);
 			}
 			else {

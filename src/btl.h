@@ -12,7 +12,7 @@ namespace btl {}
 
 
 /// Naming Conventions Used
-/// <anotherName>	-	variable and functions and classes
+/// <anotherName>	-	variable and functions and classes and files
 /// t_<Name>		-	template parameters
 /// m_<Name>		-	for private variables
 /// mp_<Name>		-	for protected members
