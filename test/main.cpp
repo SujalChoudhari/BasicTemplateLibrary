@@ -4,8 +4,8 @@
 int main() {
 	btl::flag mFlag = btl::flag(0);
 
-	mFlag.clearAll();
 	mFlag.setAll();
+	mFlag.clearAll();
 	mFlag.setFlag(2);
 	mFlag.setFlag(3);
 	mFlag.clearFlag(3);
