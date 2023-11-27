@@ -5,14 +5,14 @@ namespace btl {
 	template <typename t_Type>
 	struct doublyLink {
 	public:
-		t_Type value;
+		t_Type m_Value;
 
 		doublyLink* next;
 		doublyLink* prev;
 
 	public:
 		doublyLink() = delete;
-		doublyLink(t_Type value) : value(value), next(nullptr), prev(nullptr) {}
+		doublyLink(t_Type m_Value) : m_Value(m_Value), next(nullptr), prev(nullptr) {}
 	};
 
 
@@ -92,7 +92,7 @@ namespace btl {
 			if (result) result = result->next;
 		}
 
-		return &result->value;
+		return &result->m_Value;
 	}
 
 

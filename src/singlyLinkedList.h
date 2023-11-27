@@ -6,12 +6,12 @@ namespace btl {
 	struct singlyLink {
 	public:
 
-		t_Type value;
+		t_Type m_Value;
 		singlyLink* next;
 
 	public:
 		singlyLink() = delete;
-		singlyLink(t_Type value) : value(value), next(nullptr) {}
+		singlyLink(t_Type m_Value) : m_Value(m_Value), next(nullptr) {}
 
 	};
 
@@ -81,7 +81,7 @@ namespace btl {
 			if (result) result = result->next;
 		}
 
-		return &result->value;
+		return &result->m_Value;
 	}
 
 

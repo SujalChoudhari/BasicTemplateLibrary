@@ -1,8 +1,8 @@
 #pragma once
 
 #include "array.h"
-#include "arrayList.h"
 #include "singlyLinkedList.h"
+#include "flag.h"
 #include "doublyLinkedList.h"
 
 
